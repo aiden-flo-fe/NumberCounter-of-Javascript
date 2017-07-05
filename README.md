@@ -1,9 +1,9 @@
 # NumberCounter.js
 
-Simple JavaScript library to number count animation. 
+Simple JavaScript library to number count animation.
 
 ## Demo
- [View Demo](http://jakubroztocil.github.io/rrule/)
+ [View Demo](http://paolo2000.github.io/number-counter/)
 
 ## Quick Start
 You only have to include `src/numbercounter.js` or `src/numbercounter.min.js` in your HTML.
@@ -32,11 +32,11 @@ var numberCounter = new NumberCounter("#numberCounter", {
 
 ## Callback Arguments
 
-`
-  _this.currentCount : current count value | @number
-  _this.targetCount : target count value | @number
-  _this.countDiff : Difference between current value and target value (targetCount - currentCount) | @number  
-`
+```
+_this.currentCount : current count value | @number
+_this.targetCount : target count value | @number
+_this.countDiff : Difference between current value and target value (targetCount - currentCount) | @number
+```
 
 ## License
 
