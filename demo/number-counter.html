@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Counter Example</title>
+    <style>
+        .result_w {font-size:25px; text-align:center;}
+            .result_w strong {display:inline-block; min-width:300px; padding:20px; color:#fff; border:2px solid #2e3d54; background:#205081;}
+        .section_w {width:500px; margin:0 auto;}
+            section {margin:20px 0 0 0; border:1px solid #ccc;}
+                section h2 {margin:0; padding:10px; font-size:20px; border-bottom:1px solid #ccc; background:#f5f5f5;}
+                section p {margin:0; padding:20px 10px;}
+            .section_w section:first-child {margin-top:0;}
+            .get_count_w p strong {margin-left:30px;}
+    </style>
+</head>
+<body>
+
+
+<p class="result_w"><strong id="numberCounter"></strong></p>
+
+<div class="section_w">
+    <section class="get_count_w">
+        <h2>getCount</h2>
+        <p>
+            <button id="getCount">getCount</button>
+            <strong>getCount : <em id="getCountPrint"></em></strong>
+        </p>
+    </section>
+
+    <section class="crease_count_w">
+        <h2>increaseCount / decreaseCount</h2>
+        <p>
+            <input type="number" id="creaseCountValue" placeholder="value" value="100">
+            <button id="increaseCount">increaseCount</button>
+            <button id="decreaseCount">decreaseCount</button>
+        </p>
+    </section>
+
+    <section class="set_count_w">
+        <h2>setCount</h2>
+        <p>
+            <input type="number" id="setCountValue" placeholder="value" value="100000">
+            <button id="setCount">setCount</button>
+        </p>
+    </section>
+</div>
+
+
+
+
+
+
+<script src="src/number-counter.js"></script>
+<script>
+    var numberCounter = new NumberCounter("#numberCounter", {
+        currentCount: 0,
+        targetCount: 1000,
+        quotient: 20,
+        onChangeStart: function(_this) {
+            console.log("onChangeStart : " + _this);
+        },
+        onChangeEnd: function(obj) {
+            console.log("onChangeEnd : " + obj)
+        }
+    });
+
+    document.querySelector("#getCount").addEventListener('click', function() {
+        document.querySelector("#getCountPrint").innerHTML = numberCounter.getCount();
+    }, false);
+
+    document.querySelector("#increaseCount").addEventListener('click', function() {
+        numberCounter.increaseCount(Number(document.querySelector("#creaseCountValue").value));
+    }, false);
+
+    document.querySelector("#decreaseCount").addEventListener('click', function() {
+        numberCounter.decreaseCount(Number(document.querySelector("#creaseCountValue").value));
+    }, false);
+
+    document.querySelector("#setCount").addEventListener('click', function() {
+        numberCounter.setCount(Number(document.querySelector("#setCountValue").value));
+    }, false);
+</script>
+
+</body>
+</html>
